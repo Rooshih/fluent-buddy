@@ -29,9 +29,10 @@
 <body>
     <div id="app" class="app-container">
         <!-- Sidebar for Scenarios -->
-        <aside class="sidebar">
+        <aside id="sidebar" class="sidebar">
             <div class="sidebar-header">
                 <h2><i class="star-icon"></i> Daily Quests</h2>
+                <button id="sidebar-close" class="close-btn">&times;</button>
             </div>
             <div id="scenarios-list" class="scenarios-list">
                 <!-- Scenarios will be injected here -->
@@ -60,6 +61,7 @@
             </div>
 
             <header class="chat-header">
+                <button id="menu-toggle" class="menu-btn">☰</button>
                 <div class="buddy-info">
                     <div class="buddy-avatar-container">
                         <img id="buddy-avatar" src="avatar.png" alt="Ace The Buddy">

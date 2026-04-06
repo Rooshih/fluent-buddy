@@ -20,6 +20,9 @@ const endPracticeBtn = document.getElementById('end-practice-btn');
 const resultsOverlay = document.getElementById('results-overlay');
 const resultsSummary = document.getElementById('results-summary');
 const closeResults = document.getElementById('close-results');
+const menuToggle = document.getElementById('menu-toggle');
+const sidebar = document.getElementById('sidebar');
+const sidebarClose = document.getElementById('sidebar-close');
 
 // Initialize
 function init() {
@@ -49,6 +52,7 @@ function init() {
 
 function startScenario(scenario) {
     appendMessage('buddy', `[Quest Start!] ${scenario.description}`);
+    sidebar.classList.remove('open'); // Auto-close sidebar on mobile
     userInput.focus();
 }
 
@@ -238,6 +242,14 @@ closeFeedback.onclick = () => {
 endPracticeBtn.onclick = handleEndPractice;
 closeResults.onclick = () => {
     resultsOverlay.classList.add('hidden');
+};
+
+menuToggle.onclick = () => {
+    sidebar.classList.add('open');
+};
+
+sidebarClose.onclick = () => {
+    sidebar.classList.remove('open');
 };
 
 // Start the app
