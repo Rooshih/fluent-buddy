@@ -262,11 +262,21 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: opacity 0.3s;
+}
+
+.hidden {
+    display: none !important;
 }
 
 .results-card {
     background: linear-gradient(135deg, #FFD700, #FFA500);
     padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    color: #000;
+    width: 90%;
+    max-width: 400px;
 }
 
 /* Utils and Icons */
