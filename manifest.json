@@ -1,0 +1,17 @@
+{
+  "name": "FluentBuddy: Mario Edition",
+  "short_name": "FluentBuddy",
+  "description": "GEPT English practice with a Mario twist!",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#1a1a2e",
+  "theme_color": "#E52521",
+  "icons": [
+    {
+      "src": "avatar.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

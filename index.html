@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FluentBuddy: Mario Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- PWA Support -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="FluentBuddy">
+    <link rel="apple-touch-icon" href="avatar.png">
+    
+    <!-- Google Fonts for retro feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Register Service Worker -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js')
+            .then(reg => console.log('SW Registered!', reg))
+            .catch(err => console.log('SW Registration failed!', err));
+        });
+      }
+    </script>
+</head>
+<body>
+    <div id="app" class="app-container">
+        <!-- Sidebar for Scenarios -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="star-icon"></i> Daily Quests</h2>
+            </div>
+            <div id="scenarios-list" class="scenarios-list">
+                <!-- Scenarios will be injected here -->
+            </div>
+
+            <div class="sidebar-header" style="margin-top: 30px;">
+                <h2><i class="star-icon"></i> Review Notebook</h2>
+            </div>
+            <div id="notebook-list" class="notebook-list">
+                <!-- Notebook entries injected here -->
+                <p class="empty-note">No notes yet. Clear some Quests!</p>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-main">
+            <!-- Results Overlay (Hidden by default) -->
+            <div id="results-overlay" class="results-overlay hidden">
+                <div class="results-card">
+                    <h2><i class="star-icon"></i> Quest Clear!</h2>
+                    <div id="results-summary" class="results-summary">
+                        <!-- Summary items injected here -->
+                    </div>
+                    <button id="close-results">Awesome!</button>
+                </div>
+            </div>
+
+            <header class="chat-header">
+                <div class="buddy-info">
+                    <div class="buddy-avatar-container">
+                        <img id="buddy-avatar" src="avatar.png" alt="Ace The Buddy">
+                    </div>
+                    <div>
+                        <h1>Ace The Buddy</h1>
+                        <p class="status-badge">Level 1: Super Polyglot</p>
+                    </div>
+                </div>
+                <div class="stats">
+                    <span class="stat-item"><i class="coin-icon"></i> <span id="coins-count">0</span></span>
+                    <span class="stat-item"><i class="star-icon"></i> <span id="xp-count">0</span> XP</span>
+                </div>
+                <button id="end-practice-btn" class="end-practice-btn" title="End & Summarize">Finish</button>
+            </header>
+
+            <div id="chat-messages" class="chat-messages">
+                <!-- Messages will be injected here -->
+            </div>
+
+            <div id="feedback-panel" class="feedback-panel hidden">
+                <div class="feedback-header">
+                    <span><i class="mushroom-icon"></i> Power-up Tip!</span>
+                    <button id="close-feedback">&times;</button>
+                </div>
+                <div id="feedback-content" class="feedback-content">
+                    <!-- Feedback content injected here -->
+                </div>
+            </div>
+
+            <footer class="chat-footer">
+                <div class="input-container">
+                    <textarea id="user-input" placeholder="Type or use the Mic to speak..." rows="1"></textarea>
+                    <div class="controls">
+                        <button id="voice-btn" class="control-btn voice-btn" title="Speak">
+                            <span class="mic-icon"></span>
+                        </button>
+                        <button id="send-btn" class="control-btn send-btn" title="Send">
+                            <span class="send-icon"></span>
+                        </button>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="gept-scenarios.js"></script>
+    <script src="grammar-engine.js"></script>
+    <script src="ai-buddy.js"></script>
+    <script src="notebook.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
